@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Login</title>
+
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+
+      <script type="text/javascript" src="JS/user.js"></script>
+
+  
+ 
+  </head>
+  <body>
+
+    <div  class="container">
+      
+      
+      <div class="row align-items-start">
+        <div class="col-2"  ></div>
+
+        <div class="col-8" style="text-align: center;">
+          <h3>Login</h3>
+        </div>
+
+        <div class="col-2"  ></div>
+    </div>
+
+    <!--New Asset Box-->
+    <div class="row align-items-start">
+        <div class="col-2"  ></div>
+
+        <div class="col-8" style="text-align: left;border-bottom:1px solid #222222;">
+          <p>Login</p>
+
+          <form style="font-size: 10pt;" id="login">
+            <div class="mb-3">
+              <label for="Username" class="form-label">Username</label>
+              <input type="text" name="username" placeholder="Username"  id="user_name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" name="password" placeholder="Password" id="user_pass" required>
+            </div>
+
+          
+            
+            <button type="button" id="btn"  class="btn btn-primary">Login</button> <br/><br/>
+            <a href="file:///C:/Users/44786/Downloads/CloudAssignment/W9bWebApp/CreateUser.html"; >
+            <button type="button" id="back"  class="btn btn-primary">CreateAccount</button> <br/><br/>
+            </a>
+          </form>
+        </div>
+
+        <div id ="result" ></div>
+    </div>
+
+    <!-- view Asset Area-->
+    
+
+</div>
+
+  
+  </body>
+</html>
+
+ <script>
+var available_user_name = Array("admin"),
+    available_user_pass = Array("password"),
+    UAP = $("#userNameAndPassword");
+
+var available_users_name = Array("user1"),
+    available_users_pass = Array("password"),
+    UAP1 = $("#userNameAndPassword");    
+
+for (var i = 0; i < available_user_name.length; i++) {
+  var user_names = available_user_name[i];
+  var user_passws = available_user_pass[i];
+  $("#available_accounts").append("<div><div>"+ user_names +"</div><div>"+ user_passws +"</div></div>");
+}
+for (var i = 0; i < available_users_name.length; i++) {
+  var user_names1 = available_users_name[i];
+  var user_passws1 = available_users_pass[i];
+  $("#available_accounts1").append("<div><div>"+ user_names1 +"</div><div>"+ user_passws1 +"</div></div>");
+}  
+$("#btn").click (function (){
+var user_name = $("#user_name").val(),
+    user_pass = $("#user_pass").val(),
+    btn = $("#btn"),
+    result = $("#result");
+  
+    if($.inArray(user_name, available_user_name) >= 0){
+      if(available_user_name.indexOf(user_name) == available_user_pass.indexOf(user_pass)){
+        window.open("file:///C:/Users/44786/Downloads/CloudAssignment/W9bWebApp/index.html");
+      }else{
+        result.html("Details entered are incorrect, please try again");
+       
+      }
+    }else{
+        result.html("Details entered are incorrect, please try again");
+        
+    }
+});
+$("#btn").click (function (){
+var user_name1 = $("#user_name").val(),
+    user_pass1 = $("#user_pass").val(),
+    btn = $("#btn"),
+    result = $("#result");
+  
+    if($.inArray(user_name1, available_users_name) >= 0){
+      if(available_users_name.indexOf(user_name1) == available_users_pass.indexOf(user_pass1)){
+        window.open("file:///C:/Users/44786/Downloads/CloudAssignment/W9bWebApp/View.html");
+      }else{
+        result.html("Details entered are incorrect, please try again");
+       
+      }
+    }else{
+        result.html("Details entered are incorrect, please try again");
+        
+    }
+});
+
+ </script>   
+</html>
